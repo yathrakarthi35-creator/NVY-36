@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build & coverage outputs
+dist/
+build/
+coverage/
+*.local
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Python & OS artifacts
+__pycache__/
+.pytest_cache/
+.venv/
+.DS_Store
+Thumbs.db

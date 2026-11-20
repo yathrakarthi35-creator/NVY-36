@@ -1,0 +1,33 @@
+name: NVY AI CI — Typecheck, Tests, Build & Size Guard
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: TypeScript typecheck
+        run: npm run lint
+      - name: Run unit, API, and accessibility test suites
+        run: npm test
+      - name: Build production bundle
+        run: npm run build
+      - name: Verify repository size under 10 MB Hack2Skill limit
+        run: |
+          SIZE_KB=$(du -sk --exclude=.git --exclude=node_modules --exclude=dist . | cut -f1)
+          echo "Source size: ${SIZE_KB} KB"
+          if [ "$SIZE_KB" -gt 10240 ]; then
+            echo "ERROR: Repository exceeds 10 MB limit"
+            exit 1
+          fi

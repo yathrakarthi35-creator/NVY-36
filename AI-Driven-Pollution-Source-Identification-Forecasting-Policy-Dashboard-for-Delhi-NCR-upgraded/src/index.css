@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Syne", "Space Grotesk", sans-serif;
+    font-weight: 800;
+  }
+
+  code, pre, .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+/* Bold Typography uppercase tracking utilities */
+.tracking-widest-plus {
+  letter-spacing: 0.25em;
+}
+
+.tracking-tight-heavy {
+  letter-spacing: -0.04em;
+}
+
+/* Custom application scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Radar & Pulse Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite ease-in-out;
+}
+
+@keyframes wind-drift {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-wind {
+  stroke-dasharray: 4, 4;
+  animation: wind-drift 1s linear infinite;
+}
+
+/* Accessible keyboard focus indicators (WCAG 2.1 AA) */
+:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* Respect user reduced-motion preferences (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-pulse-glow,
+  .animate-wind {
+    animation: none !important;
+  }
+}
