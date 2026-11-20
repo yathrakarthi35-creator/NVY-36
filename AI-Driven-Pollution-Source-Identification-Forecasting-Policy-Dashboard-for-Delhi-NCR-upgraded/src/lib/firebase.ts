@@ -85,7 +85,7 @@ export interface UserAlertPreference {
   emailEnabled: boolean;
   stationId: string;
   thresholdAqi: number;
-  updatedAt?: any;
+  updatedAt?: unknown;
 }
 
 export interface CommunitySmogReport {
@@ -98,7 +98,7 @@ export interface CommunitySmogReport {
   severity: 'Visible Smog Plume' | 'Burning Leaves/Waste' | 'Dust/Construction' | 'Traffic Congestion Choke';
   description: string;
   reportedAqiEstimate?: number;
-  timestamp: any;
+  timestamp: unknown;
 }
 
 export interface SavedCommuteRoute {
@@ -109,7 +109,7 @@ export interface SavedCommuteRoute {
   preferredMode: string;
   departureTime: string;
   avgExposureUgm3: number;
-  savedAt: any;
+  savedAt: unknown;
 }
 
 // 1. User Alert Preferences in Firestore
@@ -159,7 +159,7 @@ export const submitCommunityReport = async (
 
 export const subscribeCommunityReports = (
   callback: (reports: CommunitySmogReport[]) => void,
-  onError?: (error: any) => void
+  onError?: (error: unknown) => void
 ) => {
   const reportsCol = collection(db, 'community_reports');
   const q = query(reportsCol, orderBy('timestamp', 'desc'), limit(25));
@@ -185,7 +185,7 @@ export const subscribeCommunityReports = (
       callback(list);
     },
     (error) => {
-      console.warn('Firestore community reports subscription notice:', error);
+
       if (onError) onError(error);
     }
   );
