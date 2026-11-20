@@ -107,7 +107,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           return (
             <button type="button"
               key={item.id}
-              onClick={() => onSelectTab(item.id)}
+              onClick={() => onSelectTab(item.id)} aria-current={isActive ? "page" : undefined}
               className={`w-full flex items-center justify-between px-3.5 py-3 text-xs font-black uppercase tracking-wider transition-all text-left ${
                 isActive
                   ? 'bg-white text-black font-black shadow-[0_0_15px_rgba(255,255,255,0.15)]'

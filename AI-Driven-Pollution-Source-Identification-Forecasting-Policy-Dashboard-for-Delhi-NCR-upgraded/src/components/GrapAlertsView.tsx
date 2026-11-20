@@ -103,7 +103,7 @@ export const GrapAlertsView: React.FC<GrapAlertsViewProps> = ({ grapStage }) => 
         {stagesList.map((st) => (
           <div role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); (e.currentTarget as HTMLElement).click(); } }}
             key={st.id}
-            onClick={() => setActiveTab(st.id as any)}
+            onClick={() => setActiveTab(st.id as Parameters<typeof setActiveTab>[0])}
             className={`bg-[#0a111e] border rounded-xl p-4 cursor-pointer transition-all hover:scale-[1.01] ${
               st.id === 'stage3'
                 ? 'border-purple-500/60 shadow-[0_0_20px_rgba(139,92,246,0.15)] bg-[#120f26]'

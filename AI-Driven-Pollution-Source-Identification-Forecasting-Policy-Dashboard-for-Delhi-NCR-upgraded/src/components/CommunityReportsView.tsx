@@ -255,7 +255,7 @@ export const CommunityReportsView: React.FC<CommunityReportsViewProps> = ({
                   </label>
                   <select
                     value={severity}
-                    onChange={(e) => setSeverity(e.target.value as any)}
+                    onChange={(e) => setSeverity(e.target.value as Parameters<typeof setSeverity>[0])}
                     className="w-full bg-black text-white px-3 py-2 border border-white/20 font-bold"
                   >
                     <option value="Visible Smog Plume">Dense Smog Inversion Layer</option>

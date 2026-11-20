@@ -86,7 +86,7 @@ The National Capital Region of Delhi is currently situated beneath a strong noct
           maxStation: { name: maxStation.name, aqi: maxStation.aqi },
           grapStage: grapStage.roman,
           fireCount: 23,
-          stationsSummary: stations.reduce((acc: any, s) => {
+          stationsSummary: stations.reduce((acc: Record<string, unknown>, s) => {
             acc[s.name] = s.aqi;
             return acc;
           }, {}),
@@ -99,7 +99,7 @@ The National Capital Region of Delhi is currently situated beneath a strong noct
       } else {
         setGeneratedReport(defaultBriefing);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setGeneratedReport(defaultBriefing);
     } finally {
       setIsGenerating(false);

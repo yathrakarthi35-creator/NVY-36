@@ -104,7 +104,7 @@ export const AiHighThinkingModal: React.FC<AiHighThinkingModalProps> = ({
         const data = await res.json();
         setResponse(data.reply || 'Analysis completed.');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setResponse(
         `### Atmospheric Source Attribution & Policy Synthesis\n\n**Station Focus:** ${selectedStation.name} (${selectedStation.aqi} AQI - Very Poor)\n**Airshed State:** Severe Transboundary Inversion Trap\n\n1. **Boundary Layer Collapse:** The current mixing depth of ${selectedStation.pblHeight}m compresses ground-level particulate mass, amplifying PM2.5 concentrations by ~2.2x between 20:00 and 06:00 IST.\n\n2. **Source Apportionment Matrix:**\n- **Vehicular Tailpipe & Resuspension:** 45% of PM2.5 load\n- **Agricultural Stubble Smoke (NASA VIIRS Clusters):** 25%\n- **Industrial & Kiln Fugitive Sources:** 15%\n\n3. **Optimal High-Efficacy Directives:**\n- Immediate enforcement of GRAP Stage III restrictions.\n- Intensified mechanized sweeping with anti-smog water cannons along arterial rings.\n- 50% telework transition for non-essential commercial entities.`
       );
@@ -150,7 +150,7 @@ export const AiHighThinkingModal: React.FC<AiHighThinkingModalProps> = ({
             </div>
           </div>
 
-          <button type="button"
+          <button type="button" aria-label="Close dialog"
             onClick={onClose}
             className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >

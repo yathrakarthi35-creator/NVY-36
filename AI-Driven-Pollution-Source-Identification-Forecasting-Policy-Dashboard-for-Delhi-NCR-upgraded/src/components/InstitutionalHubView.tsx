@@ -120,7 +120,7 @@ export const InstitutionalHubView: React.FC<InstitutionalHubViewProps> = ({
             <button type="button"
               key={tab.id}
               onClick={() => {
-                setFacilityType(tab.id as any);
+                setFacilityType(tab.id as Parameters<typeof setFacilityType>[0]);
                 if (tab.id === 'School') setOccupancyCount(1400);
                 if (tab.id === 'Hospital') setOccupancyCount(650);
                 if (tab.id === 'Corporate') setOccupancyCount(3200);

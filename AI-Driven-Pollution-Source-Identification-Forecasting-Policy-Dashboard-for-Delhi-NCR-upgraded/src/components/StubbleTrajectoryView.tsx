@@ -97,7 +97,7 @@ export const StubbleTrajectoryView: React.FC<StubbleTrajectoryViewProps> = ({
 
   // Play animation loop
   useEffect(() => {
-    let interval: any;
+    let interval: ReturnType<typeof setInterval> | undefined;
     if (isPlaying) {
       interval = setInterval(() => {
         setTimelineHour((prev) => (prev >= 36 ? 0 : prev + 1));

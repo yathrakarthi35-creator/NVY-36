@@ -122,14 +122,14 @@ export const AudioBroadcastView: React.FC<AudioBroadcastViewProps> = ({
     utterance.onstart = () => setIsPlaying(true);
     utterance.onend = () => setIsPlaying(false);
     utterance.onerror = (e) => {
-      console.warn('SpeechSynthesis error:', e);
+
       setIsPlaying(false);
     };
 
     try {
       window.speechSynthesis.speak(utterance);
     } catch (err) {
-      console.warn('Failed to invoke speech synthesis:', err);
+
       setIsPlaying(false);
     }
   };

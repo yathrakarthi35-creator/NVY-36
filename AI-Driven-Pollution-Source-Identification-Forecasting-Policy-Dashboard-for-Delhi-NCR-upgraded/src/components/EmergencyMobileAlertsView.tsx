@@ -91,7 +91,7 @@ export const EmergencyMobileAlertsView: React.FC<EmergencyMobileAlertsViewProps>
   const playAlertSiren = () => {
     if (!soundEnabled) return;
     try {
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
       if (!AudioCtx) return;
       const ctx = new AudioCtx();
       
@@ -117,7 +117,7 @@ export const EmergencyMobileAlertsView: React.FC<EmergencyMobileAlertsViewProps>
       osc1.stop(now + 0.6);
       osc2.stop(now + 0.6);
     } catch (e) {
-      console.warn('AudioContext not allowed or supported', e);
+
     }
   };
 
@@ -142,7 +142,7 @@ export const EmergencyMobileAlertsView: React.FC<EmergencyMobileAlertsViewProps>
             }));
           }
         } catch (e) {
-          console.warn('Could not read from Firestore', e);
+
         }
       }
     });

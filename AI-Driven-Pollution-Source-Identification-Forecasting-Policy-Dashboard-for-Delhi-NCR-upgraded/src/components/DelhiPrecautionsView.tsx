@@ -71,7 +71,7 @@ export const DelhiPrecautionsView: React.FC<DelhiPrecautionsViewProps> = ({
       } else {
         setAiAdvisoryResult('Unable to retrieve personalized precaution advisory. Please try again.');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error generating AI precaution:', err);
       setAiAdvisoryResult(
         `### 🛡️ Delhi Emergency Precaution Advisory (${selectedLocality} - AQI ${selectedStation.aqi})

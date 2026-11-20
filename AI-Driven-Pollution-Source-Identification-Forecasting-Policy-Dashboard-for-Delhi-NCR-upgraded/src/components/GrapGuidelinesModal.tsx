@@ -92,7 +92,7 @@ export const GrapGuidelinesModal: React.FC<GrapGuidelinesModalProps> = ({
             </div>
           </div>
 
-          <button type="button"
+          <button type="button" aria-label="Close dialog"
             onClick={onClose}
             className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
@@ -137,7 +137,7 @@ export const GrapGuidelinesModal: React.FC<GrapGuidelinesModalProps> = ({
 
         {/* Footer */}
         <div className="p-4 border-t border-slate-800 bg-[#0a111e] flex justify-end">
-          <button type="button"
+          <button type="button" aria-label="Close dialog"
             onClick={onClose}
             className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold"
           >
